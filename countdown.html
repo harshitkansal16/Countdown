@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Countdown</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-image: url('images/birthdayimages.jpg');
+      background-size: 90%; /* Cover the entire viewport */
+      background-position: center; /* Center the image */
+      background-repeat: no-repeat; /* Do not repeat the image */
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin-top: 70px;
+    }
+
+    #container {
+      text-align: center;
+      background-color: white;
+      padding: 30px;
+      opacity: 80%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: gold;
+    }
+
+    p {
+      font-size: 20px;
+      color: #555;
+    }
+
+    #logo {
+      max-width: 7%; /* Ensure the logo does not exceed its original size */
+      height: auto; /* Maintain aspect ratio */
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1>Happy Birthday Panda <img id="logo" src="images/panda.jpg" alt="Company Logo"> in Advance!</h1>
+    <p>You have <span id="countdown"></span> remaining until your birthday.</p>
+  </div>
+
+  <script>
+    // Get the days, hours, minutes, and seconds remaining from the URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const daysRemaining = parseInt(urlParams.get('days'));
+    const hoursRemaining = parseInt(urlParams.get('hours'));
+    const minutesRemaining = parseInt(urlParams.get('minutes'));
+    const secondsRemaining = parseInt(urlParams.get('seconds'));
+
+    // Display the countdown on the page
+    const countdownElement = document.getElementById('countdown');
+    countdownElement.innerText = `${daysRemaining} days, ${hoursRemaining} hours, ${minutesRemaining} minutes, ${secondsRemaining} seconds`;
+  </script>
+</body>
+</html>
