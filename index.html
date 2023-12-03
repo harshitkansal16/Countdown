@@ -52,11 +52,16 @@
   <script>
     function redirectToCountdownPage() {
       // Calculate time remaining until the next birthday (adjust the date as needed)
-      const birthdayDate = new Date("December 11, 2023 00:00:00 GMT");
+      const birthdayDate = new Date("12 10, 2023 18:30:00 GMT");
       const currentDate = new Date();
 
+      // Convert GMT to IST in Noida
+      const istNoidaOffset = 5.5 * 60 * 60 * 1000; // IST offset in milliseconds
+      const istNoidaBirthdayDate = new Date(birthdayDate.getTime() + istNoidaOffset);
+      const istNoidaCurrentDate = new Date(currentDate.getTime() + istNoidaOffset);
+
       // Calculate the time difference in milliseconds
-      const timeDifference = birthdayDate - currentDate;
+      const timeDifference = istNoidaBirthdayDate - istNoidaCurrentDate;
 
       // Convert milliseconds to days, hours, minutes, and seconds
       const daysRemaining = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
